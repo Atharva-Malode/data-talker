@@ -9,7 +9,7 @@ import tempfile
 import openai
 
 st.set_page_config(
-   page_title="Deep-Talker",
+   page_title="Data-Talker",
    page_icon="🧊",
    layout="wide",
    initial_sidebar_state="expanded",
@@ -20,7 +20,7 @@ def main():
         st.title("Hello 👋, We are Team Deep-Talker ")
         st.write("fell free to ask any question on your Data, wait! first Upload it from sidebar")
         
-        st.sidebar.title("🧊 Deep-Talker")
+        st.sidebar.title("🧊 Data-Talker")
         st.sidebar.markdown("---")
         user_api_key = st.sidebar.text_input(
             label="## Put Your Api Key, Don't worry its safe 😇",
@@ -35,7 +35,7 @@ def main():
         st.sidebar.markdown("3. Input queries and see responses")
         st.sidebar.info("Note : We are working on introducing the LLAMA model by Meta AI for better results which would not need any API key. Please feel free to contact us for any queries, we would also appreciate open source contributions and sponsors.")
         github_link = "[GitHub](https://github.com/Atharva-Malode/Data-Talker)"
-        st.sidebar.info("Made by Atharva-Malode - " + github_link)
+        st.sidebar.info("To contribute and Sponser - " + github_link)
 
         if uploaded_file:
             # Use tempfile because CSVLoader only accepts a file_path
