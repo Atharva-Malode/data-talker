@@ -1,0 +1,110 @@
+# Windows thumbnail cache files
+Thumbs.db
+
+# Files and directories created by Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environment directories
+venv/
+env/
+ENV/
+.python-version
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Visual Studio Code directories
+.vscode/
+.history
+.ionide
+
+# Python package distribution
+dist/
+build/
+*.egg-info/
+
+# Compiled Python extensions
+*.pyd
+*.so
+*.dll
+
+# Logs and temporary files
+*.log
+*.swp
+*~
+__pycache__/
+__pycache__/*
+*.tmp
+*.bak
+
+# Compiled executables and libraries
+*.exe
+*.out
+*.dll
+*.so
+
+# Cached files
+__pycache__/
+*.egg-info/
+*.pyc
+*.pyo
+
+# Data files
+*.csv
+*.dat
+*.db
+*.dbf
+*.mdb
+*.sqlite
+*.sqlitedb
+*.xlsx
+
+# Web files
+*.html
+*.htm
+*.css
+*.js
+*.json
+*.xml
+
+# Document files
+*.pdf
+*.doc
+*.docx
+*.rtf
+
+# Image files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.ico
+*.bmp
+*.svg
+
+# Audio and video files
+*.mp3
+*.mp4
+*.wav
+*.avi
+*.mov
+
+# Compiled files
+*.pyc
+*.pyo
+
+# Ignore Pipfile and Pipfile.lock for Pipenv
+Pipfile
+Pipfile.lock
+
+# Ignore poetry.lock for Poetry
+poetry.lock
+
+# Ignore virtualenv
+/.venv
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
