@@ -18,7 +18,7 @@ st.set_page_config(
 
 def main():
     try:
-        st.title("Hello 👋, We are Team Deep-Talker ")
+        st.title("Hello 👋, Lets Talk about your Data")
         st.write("fell free to ask any question on your Data, wait! first Upload it from sidebar")
         
         st.sidebar.title("🧊 Data-Talker")
