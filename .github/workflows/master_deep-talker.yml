@@ -1,8 +1,8 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
+# More info on Docker, GitHub Actions, and Azure App Service: https://docs.microsoft.com/en-us/azure/app-service/tutorial-custom-container?pivots=container-linux
 
-name: Build and deploy Python app to Azure Web App - Deep-Talker
+name: Build and deploy container app to Azure Web App - Deep-Talker
 
 on:
   push:
@@ -17,28 +17,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python version
-        uses: actions/setup-python@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      
+      - name: Log in to registry
+        uses: docker/login-action@v1
         with:
-          python-version: '3.9'
+          registry: deetalk.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-      
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-        
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      
-      - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v2
+      - name: Build and push container image to registry
+        uses: docker/build-push-action@v2
         with:
-          name: python-app
-          path: |
-            . 
-            !venv/
+          push: true
+          tags: deetalk.azurecr.io/deep-talker:${{ github.sha }}
+          file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,16 +42,11 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: python-app
-          path: .
-          
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
         with:
           app-name: 'Deep-Talker'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_17222B1E55F440F8936C099C3D6B2168 }}
+          images: 'deetalk.azurecr.io/deep-talker:${{ github.sha }}'
