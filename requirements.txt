@@ -2,4 +2,4 @@ langchain==0.0.274
 openai==0.27.9
 streamlit==1.25.0
 streamlit_chat==0.1.1
-tiktok==3.0.0
+tiktoken==0.4.0
