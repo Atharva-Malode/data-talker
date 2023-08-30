@@ -1,20 +1,13 @@
- # Below are all the sections and options you can have in  ~/.streamlit/config.toml.
-
 
 [global]
 
-# By default, Streamlit checks if the Python watchdog module is available
-# and, if not, prints a warning asking for you to install it. The watchdog
-# module is not required, but highly recommended. It improves Streamlit's
-# ability to detect changes to files in your filesystem.
 
 # If you'd like to turn off this warning, set this to True.
 
 
 disableWatchdogWarning = false
 
-# By default, Streamlit displays a warning when a user sets both a widget
-# default value in the function defining the widget and a widget value via
+
 # the widget's key in `st.session_state`.
 
 # If you'd like to turn off this warning, set this to True.
@@ -32,8 +25,7 @@ showWarningOnDirectExecution = true
 
 # Acceptable values:
 # - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow
-# but battle-tested.
-# - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
+
 
 
 dataFrameSerialization = "arrow"
