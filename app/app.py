@@ -19,7 +19,7 @@ st.set_page_config(
 def main():
     try:
         st.title("Hello 👋, Lets Talk about your Data")
-        st.write("fell free to ask any question on your Data, wait! first Upload it from sidebar")
+        st.write("Feel free to ask any question on your Data, wait! first Upload it from the sidebar")
         
         st.sidebar.title("🧊 Data-Talker")
         st.sidebar.markdown("---")
@@ -48,7 +48,7 @@ def main():
             data = loader.load()
 
             st.write("CSV Data:")
-            st.write("wait for some time it may take some time to load the data.....")
+            st.write("Wait for some time it may take some time to load the data.....")
 
             if user_api_key:
                 openai.api_key = user_api_key  # Set the API key
