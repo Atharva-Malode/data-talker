@@ -11,7 +11,7 @@ import openai
 from instruction import instructions
 from eda import visualize
 import pandas as pd
-
+from classification import automl
 st.set_page_config(
    page_title="Data-Talker",
    page_icon="🧊",
@@ -62,6 +62,10 @@ def main():
                 with st.header('2. Set Parameters'):
                     usecase = st.selectbox('Select dataset type (Regression/Classification)', ['regression','classification'])
                 button = st.button('Train Models')
+                if label is not None:
+                    if usecase is not None:
+                        if button:
+                            automl(df, label, usecase)
             
             if options == "Talk to your Data":
                 if user_api_key:
