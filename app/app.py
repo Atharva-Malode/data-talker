@@ -10,6 +10,7 @@ import tempfile
 import openai
 from instruction import instructions
 from eda import visualize
+import pandas as pd
 
 st.set_page_config(
    page_title="Data-Talker",
@@ -43,10 +44,12 @@ def main():
             st.write("CSV Data:")
             st.write("Wait for some time it may take some time to load the data.....")
 
-            options = st.sidebar.radio("What do you want to do?", ("Talk to your Data", "Visualize Data"))
+            options = st.sidebar.radio("What do you want to do?", ("Talk to your Data", "Visualize Data", "AutoML"))
 
             if options == "Visualize Data":
                 visualize(uploaded_file)
+
+
             if options == "Talk to your Data":
                 if user_api_key:
                     openai.api_key = user_api_key  # Set the API key
