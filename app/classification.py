@@ -26,3 +26,11 @@ def automl(df, label, usecase):
     st.subheader('Plot of Model Performance')
     fig = plt.figure(figsize=(15,6))
     plt.xlabel('Models')
+
+    if usecase == "regression":
+        plt.bar(table['Model'].head(), table['R2'].head())
+        plt.ylabel('R Square')
+    else:
+        plt.bar(table['Model'].head(), table['Accuracy'].head())
+        plt.ylabel('Accuracy')
+    st.pyplot(fig)
