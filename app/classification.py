@@ -34,3 +34,7 @@ def automl(df, label, usecase):
         plt.bar(table['Model'].head(), table['Accuracy'].head())
         plt.ylabel('Accuracy')
     st.pyplot(fig)
+
+    st.subheader('Hyper Parameter Tuning')
+    tuned_model = tune_model(best)
+    st.write(pull())
