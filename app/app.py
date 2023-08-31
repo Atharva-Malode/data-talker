@@ -21,8 +21,10 @@ st.set_page_config(
 
 def main():
     try:
-        st.title("Hello 👋, Lets Talk about your Data")
-        st.write("Feel free to ask any question on your Data, wait! first Upload it from the sidebar")
+        title = st.empty()
+        title.title("Hello 👋, Lets Talk about your Data")
+        wip = st.empty()
+        wip.text("Feel free to ask any question on your Data, \nWait! first Upload it from the sidebar")
         
         st.sidebar.title("🧊 Data-Talker")
         st.sidebar.markdown("---")
@@ -41,15 +43,25 @@ def main():
             loader = CSVLoader(file_path=tmp_file_path, encoding="utf-8", csv_args={'delimiter': ','})
             data = loader.load()
 
-            st.write("CSV Data:")
-            st.write("Wait for some time it may take some time to load the data.....")
+            csv = st.empty()
+            csv.write("CSV Data:")
+            wait = st.empty()
+            wait.write("Wait for some time it may take some time to load the data.....")
 
             options = st.sidebar.radio("What do you want to do?", ("Talk to your Data", "Visualize Data", "AutoML"))
 
             if options == "Visualize Data":
+                wip.empty()
+                title.empty()
+                csv.empty()
+                wait.empty()
                 visualize(uploaded_file)
 
             if options == "AutoML":
+                wip.empty()
+                title.empty()
+                csv.empty()
+                wait.empty()
                 if type(uploaded_file) is not str:
                     uploaded_file.seek(0)
                 df = pd.read_csv(uploaded_file)
@@ -72,6 +84,7 @@ def main():
                     st.write("Please select the target column")
             
             if options == "Talk to your Data":
+                wip.empty()
                 if user_api_key:
                     openai.api_key = user_api_key  # Set the API key
                     embeddings = OpenAIEmbeddings(openai_api_key=user_api_key)
