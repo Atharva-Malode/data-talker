@@ -66,6 +66,10 @@ def main():
                     if usecase is not None:
                         if button:
                             automl(df, label, usecase)
+                    elif button:
+                        st.write("Please select the dataset type")
+                elif button:
+                    st.write("Please select the target column")
             
             if options == "Talk to your Data":
                 if user_api_key:
