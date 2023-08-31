@@ -49,7 +49,15 @@ def main():
             if options == "Visualize Data":
                 visualize(uploaded_file)
 
+            if options == "AutoML":
+                if type(uploaded_file) is not str:
+                    uploaded_file.seek(0)
+                df = pd.read_csv(uploaded_file)
+                st.title("AutoML")
+                st.subheader("Glimpse of dataset")
+                st.write(df)
 
+            
             if options == "Talk to your Data":
                 if user_api_key:
                     openai.api_key = user_api_key  # Set the API key
