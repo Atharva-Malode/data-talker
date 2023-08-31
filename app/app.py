@@ -56,7 +56,12 @@ def main():
                 st.title("AutoML")
                 st.subheader("Glimpse of dataset")
                 st.write(df)
-
+                label = None 
+                label = st.selectbox("Select the target column",df.columns)
+                usecase = None
+                with st.header('2. Set Parameters'):
+                    usecase = st.selectbox('Select dataset type (Regression/Classification)', ['regression','classification'])
+                button = st.button('Train Models')
             
             if options == "Talk to your Data":
                 if user_api_key:
