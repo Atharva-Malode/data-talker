@@ -21,5 +21,8 @@ def automl(df, label, usecase):
         table = pull()
     wip.empty()  # Remove "Please wait" message
     st.subheader('Table of Model Performance')
-
     st.write(pull())
+
+    st.subheader('Plot of Model Performance')
+    fig = plt.figure(figsize=(15,6))
+    plt.xlabel('Models')
