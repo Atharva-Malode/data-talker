@@ -1,4 +1,4 @@
-#official Python 3.9 image as the base image
+# Official Python 3.9 image as the base image
 FROM python:3.9-slim
 
 # Set environment variables for Streamlit
@@ -8,6 +8,9 @@ ENV STREAMLIT_SERVER_ENABLE_CORS=false
 
 # Set the working directory inside the container
 WORKDIR /app
+
+# Install libgomp1 to resolve shared object file error
+RUN apt-get update && apt-get install -y libgomp1
 
 # Copy the requirements.txt file into the container
 COPY requirements.txt .
