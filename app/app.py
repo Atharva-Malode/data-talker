@@ -48,7 +48,8 @@ def main():
             wait = st.empty()
             wait.write("Wait for some time it may take some time to load the data.....")
 
-            options = st.sidebar.radio("What do you want to do?", ("Talk to your Data", "Visualize Data", "AutoML"))
+            with st.sidebar.expander("Navigation"):
+                options = st.radio("What do you want to do?", ("Home", "Visualize Data", "AutoML", "Talk to your Data"))
 
             if options == "Visualize Data":
                 wip.empty()
