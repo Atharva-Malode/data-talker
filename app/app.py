@@ -24,7 +24,7 @@ def main():
         title = st.empty()
         title.title("Hello 👋, Lets Talk about your Data")
         wip = st.empty()
-        wip.text("Feel free to ask any question on your Data, \nWait! first Upload it from the sidebar")
+        wip.text("Feel free to ask any data-related questions!\nBefore we begin, make sure to upload your data from the sidebar.\nThis app also has AutoML capabilities, making your machine learning journey easier. 🚀")
         
         st.sidebar.title("🧊 Data-Talker")
         st.sidebar.markdown("---")
