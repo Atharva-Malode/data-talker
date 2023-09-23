@@ -24,7 +24,7 @@ def main():
         title = st.empty()
         title.title("Hello 👋, Lets Talk about your Data")
         wip = st.empty()
-        wip.text("Feel free to ask any question on your Data, \nWait! first Upload it from the sidebar")
+        wip.text("Feel free to ask any data-related questions!\nBefore we begin, make sure to upload your data from the sidebar.\nThis app also has AutoML capabilities, making your machine learning journey easier. 🚀")
         
         st.sidebar.title("🧊 Data-Talker")
         st.sidebar.markdown("---")
@@ -48,7 +48,8 @@ def main():
             wait = st.empty()
             wait.write("Wait for some time it may take some time to load the data.....")
 
-            options = st.sidebar.radio("What do you want to do?", ("Talk to your Data", "Visualize Data", "AutoML"))
+            with st.sidebar.expander("Navigation"):
+                options = st.radio("What do you want to do?", ("Home", "Visualize Data", "AutoML", "Talk to your Data"))
 
             if options == "Visualize Data":
                 wip.empty()
